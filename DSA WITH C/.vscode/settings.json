@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "Assignment_2_CIRC.C": "cpp",
+        "DOUBLY_LINKED_LST.C": "cpp",
+        "CIRCULAR_LNK_LIST.C": "cpp",
+        "CIRCULAR_QUEUE.C": "cpp"
+    }
+}
