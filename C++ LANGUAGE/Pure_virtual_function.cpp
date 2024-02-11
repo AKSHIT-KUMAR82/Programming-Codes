@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+
+/* HERE , WE WILL DISCUSS ABOUT PURE VIRTUAL FUNCTION....
+SO, GENERALLY IT IS SEEN THAT THE VIRTUAL FUNCTION CORRESPONDING BASE CLASSES 
+ARE SELDOM USE FOR CREATING ANY OBJECT AND GENERALLY IT'S USED TO PROVIDE SOME TRAITS
+TO BE INHERITED BY OTHER CLASSES AND REDEFINE IT ...SUCH CLASSES THAT ARE NOT USED FOR ANY
+OBJECT CREATION IS CALLED ABSTRACT CLASSES..
+A PURE VIRTUAL FUNCTION IS THAT WHICH DOESN'T HAS ANY DEFINITON AND DO NOTHING...
+IN CASE WE DEFINE ANY PURE VIRTUAL FUNCTION IN ANY BASE CLASS THEN IT MUST
+BE REQUIRED TO REFINE IT IN IT'S SUBCLASSES OR REDECLARE IT AS PURE VIRTUAL FUNCTION..  */
+
+class book
+{
+    public:
+    virtual void display()=0; //FOR PURE VIRTUAL FUNCTION OR DO-NOTHING FUNCTION
+};
+
+class C:public book{
+    public:
+    void display()
+    {
+        cout<<"C LANGUAGE BOOK"<<endl;
+    }
+};
+
+class Cpp : public book{
+    public:
+    void display()
+    {
+        cout<<"C++ LANGUAGE BOOK"<<endl;
+    }
+};
+
+int main()
+{
+    book *bptr[2]; //AN ARRAY OF POINTERS TO THE TYPE BOOK
+    C obj1;
+    Cpp obj2;
+    bptr[0]=&obj1; // POINTER TO IT'S SUBCLASS C
+    bptr[1]=&obj2; // POINTER TO IT'S SUBCLASS C++
+    bptr[0]->display(); // RUNTIME POLYMORPHISM OR LATE BINDING/LINKING...
+    bptr[1]->display();
+    return 0;
+}
